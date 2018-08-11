@@ -1,21 +1,82 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import axios from 'axios'
+import api from './Api.js' 
 
 class App extends Component {
+  constructor(props){
+    super(props)
+
+    this.state = {
+      genres: [],
+      isLoading: false
+    }
+  }
+  componentDidMount(){
+    this.setState({isLoading:true})
+    api.loadGenres()
+      .then((res) => {
+        this.setState({
+          isLoading: false,
+          genres: res.data
+        })
+      })
+  }
+
+  renderGenreLink(genre){
+    return(
+     <span>&nbsp;<a href=''>{genre}</a>&nbsp;</span>
+    )
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <nav className="navbar navbar-default navbar-fixed-top" role="navigation">
+          <div className="container">
+            <div className="navbar-header page-scroll">
+              <a className="navbar-brand page-scroll" href="#page-top">
+                  <img src="images/logo.png" height="30" />
+              </a>
+            </div>
+
+            <div className="collapse navbar-collapse navbar-ex1-collapse">
+              <ul className="nav navbar-nav">
+                <li>
+                  <a href="">Menu item {this.state.count}</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </nav>
+
+
+        <section id="intro" className="intro-section">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-12">
+                <h1><img src="images/logo.png" /></h1>
+                <p>Nunca mais esqueça uma série que você assistiu ou que alguém lhe indicou.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section> 
+          {
+            this.state.isLoading &&
+            <span> Please, wait. Loading now... </span> 
+          }
+          {
+            !this.setState.isLoading &&
+            <div>
+              See TV Shows from: 
+              {this.state.genres.map(this.renderGenreLink)}
+            </div>
+          }
+        </section>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
