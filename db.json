@@ -23,7 +23,7 @@
       "name": "Breaking Bad",
       "status": "watched",
       "genre": "Drama",
-      "comments": "Say My Name - melhor cena"
+      "comments": "Say My name - Melhor cena"
     },
     {
       "id": 4,
@@ -31,20 +31,6 @@
       "status": "toWatch",
       "genre": "Drama",
       "comments": "Galera fala bem"
-    },
-    {
-      "name": "Game of Thrones",
-      "status": "watching",
-      "genre": "Ação",
-      "comments": "Melhor série ever",
-      "id": 5
-    },
-    {
-      "name": "Bates Motel",
-      "status": "watched",
-      "genre": "Drama",
-      "comments": "Norman Bates é doido",
-      "id": 6
     }
   ],
   "genres": [

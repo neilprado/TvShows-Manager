@@ -7,6 +7,7 @@ import {
 import NewTvShow from './NewTvShow.js'
 import Shows from './Shows'
 import Home from './Home.js'
+import EditShows from './EditShows.js'
 
 // Verificar functional stateless component
 const About = () => <section className="intro-section"><h1> Sobre </h1> </section>
@@ -20,7 +21,7 @@ class App extends Component {
             <div className="container">
               <div className="navbar-header page-scroll">
                 <a className="navbar-brand page-scroll" href="#page-top">
-                  <img src="images/logo.png" height="30" />
+                  <img src="/images/logo.png" height="30" />
                 </a>
               </div>
 
@@ -41,6 +42,7 @@ class App extends Component {
             </div>
           </nav>
           <Route exact path='/' component={Home} />
+          <Route path='/series-edit/:id/' component={EditShows} />
           <Route path='/series/:genre' component={Shows} />
           <Route exact path='/about' component={About} />
           <Route exact path='/new' component={NewTvShow} />
